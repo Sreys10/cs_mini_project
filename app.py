@@ -14,6 +14,8 @@ def index():
 
         # 🚨 VULNERABLE CODE - no input sanitization!
         query = f"SELECT * FROM products WHERE name LIKE '%{search}%'"
+        # c.execute("SELECT * FROM products WHERE name LIKE ?", ('%' + search + '%',))
+
         c.execute(query)
 
         products = c.fetchall()
